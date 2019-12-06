@@ -4,7 +4,7 @@ import Email from './email';
 import Featured from './featured';
 import Footer from './footer';
 import Head from './head';
-import Hero from './hero';
+import Hero from './hero/hero.component';
 import Jobs from './jobs';
 import Layout from './layout';
 import Loader from './loader';

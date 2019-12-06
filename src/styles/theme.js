@@ -1,9 +1,18 @@
+/**
+ * Original:
+ * navy: '#0a192f',
+ *
+ * Candidates:
+ * navy: 'rgb(30, 49, 77)',
+ * navy: 'rgb(26, 42, 66)',
+ */
+
 const theme = {
   colors: {
     dark: '#000007',
     darkestNavy: '#01050b',
     darkNavy: '#020c1b',
-    navy: '#0a192f',
+    navy: 'rgb(34, 51, 77)',
     lightNavy: '#172a45',
     darkGrey: '#333f58',
     mediumGrey: '#2d3952',
@@ -30,6 +39,8 @@ const theme = {
     Calibre:
       'Calibre, San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
     SFMono: 'SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, monospace',
+    Montserrat:
+      'Montserrat, San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
   },
 
   fontSizes: {

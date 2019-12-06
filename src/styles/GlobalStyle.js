@@ -131,6 +131,95 @@ const GlobalStyle = createGlobalStyle`
     font-style: italic;
     font-display: auto;
   }
+  @font-face {
+    font-family: "Montserrat";
+    font-weight: 100;
+    font-style: normal;
+    src: url(${fontFamilies.MontserratThinWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratThinWOFF}) format("woff"),
+        url(${fontFamilies.MontserratThinEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 300;
+      font-style: normal;
+      src: url(${fontFamilies.MontserratLightWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratLightWOFF}) format("woff"),
+        url(${fontFamilies.MontserratLightEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 400;
+      font-style: normal;
+      src: url(${fontFamilies.MontserratRegularWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratRegularWOFF}) format("woff"),
+        url(${fontFamilies.MontserratRegularEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 400;
+      font-style: italic;
+      src: url(${fontFamilies.MontserratRegularItalicWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratRegularItalicWOFF}) format("woff"),
+        url(${fontFamilies.MontserratRegularItalicEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-style: normal;
+      src: url(${fontFamilies.MontserratMediumWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratMediumWOFF}) format("woff"),
+        url(${fontFamilies.MontserratMediumEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-style: italic;
+      src: url(${fontFamilies.MontserratMediumItalicWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratMediumItalicWOFF}) format("woff"),
+        url(${fontFamilies.MontserratMediumItalicEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-style: normal;
+      src: url(${fontFamilies.MontserratSemiBoldWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratSemiBoldWOFF}) format("woff"),
+        url(${fontFamilies.MontserratSemiBoldEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-style: italic;
+      src: url(${fontFamilies.MontserratSemiBoldItalicWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratSemiBoldItalicWOFF}) format("woff"),
+        url(${fontFamilies.MontserratSemiBoldItalicEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 700;
+      font-style: normal;
+      src: url(${fontFamilies.MontserratBoldWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratBoldWOFF}) format("woff"),
+        url(${fontFamilies.MontserratBoldEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 700;
+      font-style: italic;
+      src: url(${fontFamilies.MontserratBoldItalicWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratBoldItalicWOFF}) format("woff"),
+        url(${fontFamilies.MontserratBoldItalicEOT}) format('embedded-opentype');
+  }
+  @font-face {
+      font-family: "Montserrat";
+      font-weight: 900;
+      font-style: normal;
+      src: url(${fontFamilies.MontserratBlackWOFF2}) format("woff2"),
+        url(${fontFamilies.MontserratBlackWOFF}) format("woff"),
+        url(${fontFamilies.MontserratBlackEOT}) format('embedded-opentype');
+  }
+
 
   html {
     box-sizing: border-box;
@@ -153,9 +242,9 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${colors.navy};
     color: ${colors.slate};
     line-height: 1.3;
-    font-family: ${fonts.Calibre};
-    font-size: ${fontSizes.xl};
-    ${media.phablet`font-size: ${fontSizes.lg};`}
+    font-family: ${fonts.Montserrat};
+    font-size: ${fontSizes.lg};
+    ${media.phablet`font-size: ${fontSizes.md};`}
 
     &.hidden {
       overflow: hidden;
@@ -300,7 +389,7 @@ const GlobalStyle = createGlobalStyle`
 
   .overline {
     color: ${colors.green};
-    font-family: ${fonts.SFMono};
+    font-family: ${fonts.Montserrat};
     font-size: ${fontSizes.md};
     font-weight: normal;
   }

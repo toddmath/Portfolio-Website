@@ -23,7 +23,7 @@ const StyledTitleContainer = styled.header`
 `;
 const StyledTitle = styled.h1`
   font-size: 80px;
-  line-height: 1.1;
+  line-height: 1.2;
   margin: 0;
   ${media.desktop`font-size: 70px;`};
   ${media.tablet`font-size: 60px;`};
@@ -118,6 +118,7 @@ const ArchivePage = ({ location, data }) => {
   const revealTitle = useRef(null);
   const revealTable = useRef(null);
   const revealProjects = useRef([]);
+
   useEffect(() => {
     sr.reveal(revealTitle.current, srConfig());
     sr.reveal(revealTable.current, srConfig());
@@ -163,7 +164,8 @@ const ArchivePage = ({ location, data }) => {
                       </td>
 
                       <td className="tech hide-on-mobile">
-                        {tech.length > 0 &&
+                        {tech &&
+                          tech.length > 0 &&
                           tech.map((item, i) => (
                             <span key={i}>
                               <span key={i}>{item}</span>
