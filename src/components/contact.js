@@ -4,7 +4,7 @@ import sr from '@utils/sr';
 import { srConfig, email } from '@config';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, Heading } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+const { flat, fontSizes, fonts } = theme;
 
 const StyledContainer = styled(Section)`
   text-align: center;
@@ -16,7 +16,7 @@ const StyledContainer = styled(Section)`
 `;
 const StyledHeading = styled(Heading)`
   display: block;
-  color: ${colors.green};
+  color: ${flat.dark.headline} !important;
   font-size: ${fontSizes.md};
   font-family: ${fonts.SFMono};
   font-weight: normal;
@@ -27,6 +27,7 @@ const StyledHeading = styled(Heading)`
     bottom: 0;
     font-size: ${fontSizes.sm};
     ${media.desktop`font-size: ${fontSizes.smish};`};
+    color: ${flat.dark.tertiary};
   }
   &:after {
     display: none;
@@ -35,6 +36,7 @@ const StyledHeading = styled(Heading)`
 const StyledTitle = styled.h4`
   margin: 0 0 20px;
   font-size: 60px;
+  color: ${flat.dark.headline};
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 40px;`};
 `;

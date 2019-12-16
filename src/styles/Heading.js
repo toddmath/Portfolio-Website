@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from './theme';
 import media from './media';
-const { colors, fontSizes, fonts } = theme;
+const { flat, fontSizes, fonts } = theme;
 
 const Heading = styled.h3`
   position: relative;
@@ -12,6 +12,7 @@ const Heading = styled.h3`
   white-space: nowrap;
   font-size: ${fontSizes.h3};
   ${media.tablet`font-size: 24px;`};
+  color: ${flat.dark.headline};
 
   &:before {
     counter-increment: section;
@@ -19,7 +20,7 @@ const Heading = styled.h3`
     margin-right: 10px;
     font-family: ${fonts.SFMono};
     font-weight: normal;
-    color: ${colors.green};
+    color: ${flat.dark.tertiary};
     font-size: ${fontSizes.xl};
     position: relative;
     bottom: 4px;
@@ -31,7 +32,7 @@ const Heading = styled.h3`
     display: block;
     height: 1px;
     width: 300px;
-    background-color: ${colors.mediumGrey};
+    background-color: ${flat.dark.tertiary};
     position: relative;
     top: -5px;
     margin-left: 20px;

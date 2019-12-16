@@ -20,15 +20,15 @@ module.exports = {
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
+      url: 'https://www.linkedin.com/in/todd-matheson-bb5b90178',
     },
     {
       name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      url: 'https://codepen.io/toddmath',
     },
     {
       name: 'Instagram',
-      url: '',
+      url: 'https://www.instagram.com/toddmatheson11/',
     },
     {
       name: 'Twitter',
@@ -42,11 +42,7 @@ module.exports = {
       url: '/#about',
     },
     {
-      name: 'Experience',
-      url: '/#jobs',
-    },
-    {
-      name: 'Work',
+      name: 'Projects',
       url: '/#projects',
     },
     {

@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 import theme from './theme';
-const { colors, fontSizes, fonts } = theme;
+const { fontSizes, fonts, flat } = theme;
 
 const Button = styled.button`
-  color: ${colors.green};
+  color: ${flat.dark.button};
   background-color: transparent;
-  border: 1px solid ${colors.green};
+  border: 1px solid ${flat.dark.button};
   border-radius: ${theme.borderRadius};
   font-size: ${fontSizes.smish};
   font-family: ${fonts.Montserrat};
-  font-weight: 300;
+  font-weight: 500;
+  text-transform: uppercase;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -19,7 +20,8 @@ const Button = styled.button`
   &:hover,
   &:focus,
   &:active {
-    background-color: ${colors.transGreen};
+    background-color: ${flat.dark.button};
+    color: ${flat.dark.buttonText};
     outline: none;
   }
   &:after {

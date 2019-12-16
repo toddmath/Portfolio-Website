@@ -5,6 +5,57 @@
  * Candidates:
  * navy: 'rgb(30, 49, 77)',
  * navy: 'rgb(26, 42, 66)',
+ *
+ * * 2 stars:
+ * background: 'rgba(255, 255, 255, 1)',
+ * headline: '#2b2c34',
+ * paragraph: '#2b2c34',
+ * shadow: 'rgba(101, 101, 102, 0.6)',
+ * link: 'rgba(69, 191, 169, 1)',
+ * transLink: 'rgba(69, 191, 169, .07)',
+ * cardBackground: 'rgba(27, 140, 129, 1)',
+ * cardHeadline: '#fffffe',
+ * cardParagraph: '#fffffe',
+ * cardTagBackground: '#bae8e8',
+ * button: 'rgba(69, 191, 169, 1)',
+ * buttonText: '#fffffe',
+ * stroke: '#010101',
+ * main: '#fffffe',
+ * highlight: '#6246ea',
+ * secondary: 'rgba(242, 242, 242, 1)',
+ * tertiary: 'rgba(149, 191, 191, 1)',
+ * formInput: 'rgba(242, 242, 242, 1)',
+ * label: '#2b2c34',
+ * formButton: '#6246ea',
+ * formButtonText: '#fffffe',
+ *
+ * * 3 stars:
+ * background: 'rgba(255, 251, 237, 1)',
+ * headline: 'rgba(169, 189, 204, 1)',
+ * paragraph: 'rgba(96, 96, 89, 1)',
+ * shadow: 'rgba(96, 96, 89, 1)',
+ * link: 'rgba(74, 131, 255, 1)',
+ * transLink: 'rgba(109, 187, 219, 0.09)',
+ * cardBackground: 'rgba(169, 189, 204, 1)',
+ * cardHeadline: 'rgba(43, 61, 80, 1)',
+ * cardParagraph: 'rgba(43, 61, 80, 1)',
+ * cardTagBackground: 'rgba(74, 131, 255, 1)',
+ * button: 'rgba(74, 131, 255, 1)',
+ * buttonText: '#fffffe',
+ * stroke: '#010101',
+ * main: '#fffffe',
+ * highlight: 'rgba(74, 131, 255, 1)',
+ * secondary: 'rgba(169, 189, 204, 1)',
+ * tertiary: 'rgba(74, 131, 255, 1)',
+ * formInput: 'rgba(169, 189, 204, 1)',
+ * label: '#2b2c34',
+ * formButton: 'rgba(74, 131, 255, 1)',
+ * formButtonText: '#fffffe',
+ *
+ * imgBackground: 'rgba(255, 251, 237, 0.2)',
+ * cardBackground: 'rgba(169, 189, 204, 1)',
+ * cardHeadline: 'rgba(43, 61, 80, 1)',
+ * cardParagraph: 'rgba(43, 61, 80, 1)',
  */
 
 const theme = {
@@ -35,6 +86,48 @@ const theme = {
     shadowNavy: 'rgba(2, 12, 27, 0.7)',
   },
 
+  flat: {
+    dark: {
+      background: 'rgba(247, 248, 255, 1)',
+      headline: 'rgba(96, 102, 140, 1)',
+      paragraph: 'rgba(96, 96, 89, 1)',
+      shadow: 'rgba(96, 96, 89, 0.8)',
+      headerShadow: 'rgba(96, 96, 89, 0.7)',
+      headerBorder: 'rgba(194, 199, 204, 1)',
+      link: 'rgba(74, 131, 255, 1)',
+      transLink: 'rgba(74, 131, 255, 0.09)',
+      imgBackground: 'rgba(255, 251, 237, 0.2)',
+      cardBackground: 'rgba(43, 61, 80, 1)',
+      cardHeadline: 'rgba(247, 248, 255, 1)',
+      cardParagraph: 'rgba(169, 189, 204, 1)',
+      cardTagBackground: 'rgba(74, 131, 255, 1)',
+      button: 'rgba(74, 131, 255, 1)',
+      buttonText: 'rgba(247, 248, 255, 1)',
+      stroke: '#010101',
+      main: '#fffffe',
+      highlight: 'rgba(74, 131, 255, 1)',
+      secondary: 'rgba(169, 189, 204, 1)',
+      tertiary: 'rgba(74, 131, 255, 1)',
+      formInput: 'rgba(169, 189, 204, 1)',
+      label: '#2b2c34',
+      formButton: 'rgba(74, 131, 255, 1)',
+      formButtonText: '#fffffe',
+      grey: 'rgba(76, 87, 114, 1)',
+    },
+    light: {
+      background: 'rgba(247, 248, 255, 1)',
+      headline: '#2b2c34',
+      paragragh: '#2b2c34',
+      button: '#6246ea',
+      buttonText: '#fffffe',
+      stroke: '#2b2c34',
+      main: '#fffffe',
+      highlight: '#6246ea',
+      secondary: '#d1d1e9',
+      tertiary: '#e45858',
+    },
+  },
+
   fonts: {
     Calibre:
       'Calibre, San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
@@ -54,10 +147,17 @@ const theme = {
     h3: '32px',
   },
 
+  lineHeights: {
+    grid: '19.8px',
+    body: '20.8px',
+    subtitle: '22.88px',
+  },
+
   easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+  loadEase: 'cubic-bezier(.65,.28,.46,.85)',
   transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
 
-  borderRadius: '3px',
+  borderRadius: '0.2em',
   navHeight: '100px',
   navScrollHeight: '70px',
   margin: '20px',
@@ -67,6 +167,20 @@ const theme = {
   radius: 3,
 
   gradient: `linear-gradient(0.4turn, #64d6ff, #64ffda)`,
+
+  gradients: {
+    blueTeal: `background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);`,
+    blueGreen: `background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);`,
+    lightBlue: `background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);`,
+    purpleBlue: `background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);`,
+    grey: `background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+ background-blend-mode: multiply,multiply;`,
+    silver: `background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);`,
+    brightBlue: `background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);`,
+    blueGrey: `background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);`,
+    black: `background-image: linear-gradient(to right, #434343 0%, black 100%);`,
+    darkGrey: `background-image: linear-gradient(to right, #868f96 0%, #596164 100%);`,
+  },
 
   loaderDelay: `6`,
 

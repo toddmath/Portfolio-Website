@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { theme, mixins, media, Section } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+const { flat, fontSizes, fonts } = theme;
 
 export const StyledContainer = styled(Section)`
   ${mixins.flexCenter};
@@ -14,7 +14,7 @@ export const StyledContainer = styled(Section)`
 `;
 
 export const StyledOverline = styled.h1`
-  color: ${colors.green};
+  color: ${flat.dark.stroke};
   margin: 0 0 20px 3px;
   font-size: ${fontSizes.md};
   font-family: ${fonts.SFMono};
@@ -35,11 +35,12 @@ const titleStyles = css`
 
 export const StyledTitle = styled.h2`
   ${titleStyles};
+  color: ${flat.dark.paragraph};
 `;
 
 export const StyledSubtitle = styled.h3`
   ${titleStyles};
-  color: ${colors.slate};
+  color: ${flat.dark.headline};
 `;
 
 export const StyledDescription = styled.div`

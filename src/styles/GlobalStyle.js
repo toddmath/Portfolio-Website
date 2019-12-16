@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import media from './media';
 import * as fontFamilies from './fonts';
-const { colors, fontSizes, fonts } = theme;
+import mixins from './mixins';
+const { fontSizes, fonts, flat, lineHeights } = theme;
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -224,6 +225,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
+    text-rendering: optimizeLegibility;
   }
 
   *,
@@ -239,9 +241,9 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${colors.navy};
-    color: ${colors.slate};
-    line-height: 1.3;
+    background-color: ${flat.light.background};
+    color: ${flat.dark.paragraph};
+    line-height: ${lineHeights.body};
     font-family: ${fonts.Montserrat};
     font-size: ${fontSizes.lg};
     ${media.phablet`font-size: ${fontSizes.md};`}
@@ -261,7 +263,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${colors.highlight};
+    ${mixins.textSelectShadow};
   }
 
   h1,
@@ -270,7 +272,7 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5 {
     font-weight: 600;
-    color: ${colors.white};
+    color: ${flat.dark.headline};
     margin: 0 0 10px 0;
   }
 
@@ -306,7 +308,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: ${colors.green};
+      color: ${flat.dark.tertiary};
       outline: 0;
     }
   }
@@ -318,7 +320,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:focus,
     &:active {
-      outline-color: ${colors.blue};
+      outline-color: ${flat.dark.button};
     }
   }
 
@@ -388,7 +390,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .overline {
-    color: ${colors.green};
+    color: ${flat.dark.tertiary};
     font-family: ${fonts.Montserrat};
     font-size: ${fontSizes.md};
     font-weight: normal;

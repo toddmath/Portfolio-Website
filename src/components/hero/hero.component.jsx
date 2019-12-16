@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { email } from '@config';
+import { useTimeout } from '@hooks';
 import {
   StyledOverline,
   StyledTitle,
@@ -14,10 +15,7 @@ import {
 const Hero = ({ data }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 1000);
-    return () => clearTimeout(timeout);
-  }, []);
+  useTimeout(() => setIsMounted(true), 700);
 
   const { frontmatter, html } = data[0].node;
 
@@ -49,7 +47,7 @@ const Hero = ({ data }) => {
       <TransitionGroup component={null}>
         {isMounted &&
           items.map((item, i) => (
-            <CSSTransition key={i} classNames="fadeup" timeout={3000}>
+            <CSSTransition key={i} classNames="fadeup" timeout={0}>
               {item}
             </CSSTransition>
           ))}

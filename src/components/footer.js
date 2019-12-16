@@ -12,20 +12,20 @@ import {
 import { socialMedia } from '@config';
 import styled from 'styled-components';
 import { theme, mixins, media } from '@styles';
-const { colors, fontSizes, fonts } = theme;
+const { flat, fontSizes, fonts } = theme;
 
 const StyledContainer = styled.footer`
   ${mixins.flexCenter};
   flex-direction: column;
   padding: 15px;
-  background-color: ${colors.darkNavy};
-  color: ${colors.slate};
+  background-color: ${flat.dark.background};
+  color: ${flat.dark.paragraph};
   text-align: center;
   height: auto;
   min-height: 70px;
 `;
 const StyledSocial = styled.div`
-  color: ${colors.lightSlate};
+  color: ${flat.dark.button};
   width: 100%;
   max-width: 270px;
   margin: 0 auto 10px;
@@ -49,7 +49,13 @@ const StyledMetadata = styled.div`
   line-height: 1;
 `;
 const StyledGitHubLink = styled.a`
-  color: ${colors.slate};
+  color: ${flat.dark.paragraph};
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: ${flat.dark.button};
+  }
 `;
 const StyledGitHubInfo = styled.div`
   margin-top: 10px;

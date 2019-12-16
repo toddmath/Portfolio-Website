@@ -217,10 +217,7 @@ class Nav extends Component {
   };
 
   handleKeydown = e => {
-    if (!this.state.menuOpen) {
-      return;
-    }
-
+    if (!this.state.menuOpen) return;
     if (e.which === 27 || e.key === 'Escape') {
       this.toggleMenu();
     }

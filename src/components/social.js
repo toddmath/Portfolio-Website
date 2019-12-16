@@ -4,7 +4,7 @@ import { socialMedia } from '@config';
 import { FormattedIcon } from '@components/icons';
 import styled from 'styled-components';
 import { theme, media } from '@styles';
-const { colors } = theme;
+const { colors, flat } = theme;
 
 const StyledContainer = styled.div`
   width: 40px;
@@ -25,7 +25,7 @@ const StyledList = styled.ul`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: ${colors.lightSlate};
+    background-color: ${flat.dark.secondary};
   }
 `;
 const StyledListItem = styled.li`
@@ -35,6 +35,7 @@ const StyledListItem = styled.li`
 `;
 const StyledLink = styled.a`
   padding: 10px;
+  color: ${flat.dark.link};
   &:hover,
   &:focus {
     transform: translateY(-3px);
