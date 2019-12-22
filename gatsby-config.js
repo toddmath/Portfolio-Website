@@ -7,21 +7,35 @@ module.exports = {
     description: config.siteDescription,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-emotion`,
+    'gatsby-plugin-eslint',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: 'gatsby-plugin-lodash',
+      options: {
+        disabledFeatures: ['exotics'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /images/,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-styled-components',
       options: {
         displayName: true,
         fileName: false,
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-robots-txt`,
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-robots-txt',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'ToddMatheson',
         short_name: 'toddmath',
@@ -32,7 +46,7 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
-    `gatsby-plugin-offline`,
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -41,7 +55,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
@@ -63,10 +77,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: config.googleAnalyticsID,
       },
     },
+    'gatsby-plugin-webpack-bundle-analyzer',
   ],
 };

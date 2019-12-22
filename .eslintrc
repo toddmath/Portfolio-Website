@@ -1,11 +1,13 @@
 {
-  "extends": "@upstatement/eslint-config/react",
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
   "settings": {
     "react": {
       "version": "detect"
     }
   },
   "rules": {
+    "strict": 0,
     "curly": "off"
   }
 }
