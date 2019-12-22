@@ -8,6 +8,7 @@
   },
   "rules": {
     "strict": 0,
-    "curly": "off"
+    "curly": "off",
+    "quotes": "off"
   }
 }
