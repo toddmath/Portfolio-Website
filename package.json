@@ -1,11 +1,11 @@
 {
-  "name": "v4",
-  "description": "Personal Website V4",
+  "name": "portfolio",
+  "description": "Portfolio Website",
   "version": "1.0.0",
-  "author": "Brittany Chiang <brittany.chiang@gmail.com>",
+  "author": "toddmath <tmatheson11186@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bchiang7/v4"
+    "url": "https://github.com/toddmath/Portfolio-Website"
   },
   "keywords": [
     "gatsby"
@@ -30,27 +30,24 @@
     ]
   },
   "dependencies": {
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
     "animejs": "^3.1.0",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.18.11",
-    "gatsby-image": "^2.2.36",
-    "gatsby-plugin-emotion": "^4.1.18",
+    "gatsby": "^2.18.16",
+    "gatsby-image": "^2.2.37",
     "gatsby-plugin-google-analytics": "^2.1.31",
-    "gatsby-plugin-manifest": "^2.2.33",
+    "gatsby-plugin-manifest": "^2.2.34",
     "gatsby-plugin-netlify": "^2.1.30",
-    "gatsby-plugin-offline": "^3.0.29",
+    "gatsby-plugin-offline": "^3.0.30",
     "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-robots-txt": "^1.5.0",
-    "gatsby-plugin-sharp": "^2.3.7",
+    "gatsby-plugin-sharp": "^2.3.10",
     "gatsby-plugin-sitemap": "^2.2.24",
     "gatsby-plugin-styled-components": "^3.1.16",
     "gatsby-remark-external-links": "0.0.4",
-    "gatsby-remark-images": "^3.1.38",
-    "gatsby-source-filesystem": "^2.1.42",
-    "gatsby-transformer-remark": "^2.6.42",
+    "gatsby-remark-images": "^3.1.39",
+    "gatsby-source-filesystem": "^2.1.43",
+    "gatsby-transformer-remark": "^2.6.45",
     "gatsby-transformer-sharp": "^2.3.9",
     "lottie-web": "^5.5.10",
     "prop-types": "^15.7.2",
@@ -66,13 +63,16 @@
     "@upstatement/eslint-config": "0.4.3",
     "@upstatement/prettier-config": "^0.3.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
+    "fast-fp.macro": "^1.0.0-beta.3",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "preval.macro": "^4.0.0",
+    "using.macro": "^1.0.5"
   }
 }

@@ -1,5 +1,10 @@
 {
   "extends": "@upstatement/eslint-config/react",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "curly": "off"
   }
