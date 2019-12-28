@@ -1,4 +1,4 @@
-const config = require('./src/config');
+const config = require('./src/config')
 
 module.exports = {
   siteMetadata: {
@@ -13,14 +13,6 @@ module.exports = {
       resolve: 'gatsby-plugin-lodash',
       options: {
         disabledFeatures: ['exotics'],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /images/,
-        },
       },
     },
     {
@@ -46,7 +38,14 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        workboxConfig: {
+          importWorkboxFrom: `cdn`,
+        },
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -76,12 +75,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: config.googleAnalyticsID,
-      },
-    },
     'gatsby-plugin-webpack-bundle-analyzer',
   ],
-};
+}

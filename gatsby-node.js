@@ -6,7 +6,7 @@
 
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
 
-const path = require('path');
+const path = require('path')
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
@@ -23,7 +23,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
           },
         ],
       },
-    });
+    })
   }
 
   actions.setWebpackConfig({
@@ -38,7 +38,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         '@styles': path.resolve(__dirname, 'src/styles'),
         '@utils': path.resolve(__dirname, 'src/utils'),
         '@hooks': path.resolve(__dirname, 'src/hooks'),
+        '@context': path.resolve(__dirname, 'src/context'),
       },
     },
-  });
-};
+  })
+}

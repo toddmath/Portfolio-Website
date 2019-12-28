@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import anime from 'animejs';
+import React, { useEffect, useState } from 'react'
+import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
+import anime from 'animejs'
 // import { IconLoader } from '@components/icons';
-import { StyledContainer, StyledSvg } from './loader.styles';
-import { useTimeout } from '@hooks';
+import { StyledContainer, StyledLogo } from './loader.styles'
+import { useTimeout } from '@hooks'
 
 // const Loader = ({ finishLoading }) => {
 //   const animate = () => {
@@ -34,53 +34,104 @@ import { useTimeout } from '@hooks';
 //   );
 // };
 
-const Loader = ({ size, finishLoading }) => {
+const Loader = ({ finishLoading }) => {
   const animate = () => {
-    const loader = anime.timeline({ complete: () => finishLoading() });
+    const loader = anime.timeline({
+      complete: () => finishLoading(),
+    })
 
-    loader.add({
-      target: '.loader',
-      duration: 1250,
-      easing: 'easeInOutSine',
-      opacity: 0,
-      zIndex: -1,
-    });
-  };
+    loader
+      .add({
+        targets: '#logo path',
+        delay: 0,
+        duration: 2000,
+        easing: 'easeInOutQuart',
+        strokeDashoffset: [anime.setDashoffset, 0],
+      })
+      .add({
+        targets: '#logo #T',
+        duration: 800,
+        easing: 'easeInOutQuart',
+        opacity: 1,
+      })
+      .add({
+        targets: '#logo',
+        delay: 700,
+        duration: 300,
+        easing: 'easeInOutQuart',
+        opacity: 0,
+      })
+      .add({
+        target: '.loader',
+        duration: 700,
+        easing: 'easeInOutQuart',
+        opacity: 0,
+        zIndex: -1,
+      })
+  }
 
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   // const mountIt = () => setIsMounted(true);
-  useTimeout(() => setIsMounted(true), 100);
+  useTimeout(() => setIsMounted(true), 100)
 
-  useEffect(() => animate(), []);
+  useEffect(() => animate(), [])
 
   return (
-    <StyledContainer className="loader">
+    <StyledContainer className='loader'>
       <Helmet bodyAttributes={{ class: `hidden` }} />
-      <StyledSvg
-        isMounted={isMounted}
-        xmlns="http://www.w3.org/2000/svg"
-        size={size}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-      </StyledSvg>
+      <StyledLogo isMounted={isMounted}>
+        <svg
+          id='logo'
+          xmlns='http://www.w3.org/2000/svg'
+          aria-labelledby='title'
+          viewBox='0 0 84 96'
+        >
+          <title>T</title>
+          <g>
+            <g
+              id='T'
+              transform='translate(36, 33)'
+              fontFamily='Calibre-Medium, Calibre'
+              fontSize='50'
+              fontWeight='400'
+              letterSpacing='4.16666603'
+            >
+              <text strokeWidth='5' strokeLinecap='round' strokeLinejoin='round'>
+                <tspan x='0.141666985' y='33'>
+                  T
+                </tspan>
+              </text>
+            </g>
+          </g>
+        </svg>
+      </StyledLogo>
     </StyledContainer>
-  );
-};
+  )
+}
 
 Loader.propTypes = {
-  size: PropTypes.number,
   finishLoading: PropTypes.func.isRequired,
-};
+}
 
-export default Loader;
+export default Loader
 
 /**
+ * * WAS RIGHT AFTER HELMET COMPONENT:
+ * <StyledSvg
+        isMounted={isMounted}
+        xmlns='http://www.w3.org/2000/svg'
+        size={size}
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      >
+        <circle cx='12' cy='12' r='10' />
+      </StyledSvg>
+
  *
  * .add({
         targets: '.staggering-axis-grid .el',

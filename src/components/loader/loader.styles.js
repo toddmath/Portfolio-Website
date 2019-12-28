@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
-import { theme, mixins } from '@styles';
-const { flat, loadEase, transition, gradients } = theme;
+import styled, { css, keyframes } from 'styled-components'
+import { theme, mixins } from '@styles'
+const { flat, loadEase, transition, gradients } = theme
 
 export const StyledContainer = styled.div`
   ${mixins.flexCenter};
@@ -13,7 +13,7 @@ export const StyledContainer = styled.div`
   left: 0;
   right: 0;
   z-index: 99;
-`;
+`
 
 export const StyledLogo = styled.div`
   width: max-content;
@@ -27,17 +27,17 @@ export const StyledLogo = styled.div`
     margin: 0 auto;
     fill: none;
     user-select: none;
-    #B {
+    #T {
       opacity: 0;
     }
   }
-`;
+`
 
 const rotate = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`;
+`
 
 const dash = keyframes`
   0% {
@@ -58,7 +58,7 @@ const dash = keyframes`
     stroke: ${flat.dark.link};
     opacity: 1;
   }
-`;
+`
 
 export const StyledLoader = css`
   animation: ${rotate} 2s linear infinite;
@@ -67,7 +67,7 @@ export const StyledLoader = css`
   & circle {
     animation: 1.5s ${dash} ${loadEase} infinite;
   }
-`;
+`
 
 export const StyledSvg = styled.svg`
   ${StyledLoader};
@@ -78,7 +78,7 @@ export const StyledSvg = styled.svg`
   background-color: transparent;
   color: transparent;
   transition: ${transition};
-`;
+`
 
 export const StyledGridContainer = styled.div`
   position: relative;
@@ -88,7 +88,7 @@ export const StyledGridContainer = styled.div`
   height: 100vh;
   overflow: hidden;
   transition: ${transition};
-`;
+`
 
 /**
  * display: flex;
@@ -108,7 +108,7 @@ export const StyledGrid = styled.div`
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-`;
+`
 
 const smallSquareStyles = css`
   min-width: 8vw;
@@ -117,7 +117,7 @@ const smallSquareStyles = css`
   height: auto;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: contrast(2);
-`;
+`
 
 /**
   width: 18px;
@@ -131,7 +131,7 @@ const circleStyles = css`
   height: 28px;
   margin: 1px;
   font-size: 14px;
-`;
+`
 
 /* background-color: ${flat.dark.button}; */
 
@@ -139,4 +139,4 @@ const circleStyles = css`
 export const StyledSquare = styled.div`
   ${circleStyles};
   ${smallSquareStyles};
-`;
+`

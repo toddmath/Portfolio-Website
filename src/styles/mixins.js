@@ -1,7 +1,15 @@
-import { css, keyframes } from 'styled-components';
-import theme from './theme';
-import media from './media';
-const { fontSizes, fonts, flat, borderRadius, gradients, transition } = theme;
+import { css, keyframes } from 'styled-components'
+import theme from './theme'
+import media from './media'
+
+const {
+  flat,
+  borderRadius,
+  gradients,
+  transition,
+  fonts: { SFMono },
+  fontSizes: { sm, smish, md, lg },
+} = theme
 
 const rippleEffect = keyframes`
   0% {
@@ -16,7 +24,29 @@ const rippleEffect = keyframes`
     transform: scale(35);
     opacity: 0;
   }
-`;
+`
+
+const buttonStyles = css`
+  box-sizing: border-box;
+  color: ${flat.dark.button};
+  background-color: transparent;
+  border: 1px solid ${flat.dark.button};
+  border-radius: ${borderRadius};
+  font-family: ${SFMono};
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: ${transition};
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: ${flat.dark.button};
+    color: ${flat.dark.buttonText};
+  }
+  &:after {
+    display: none !important;
+  }
+`
 
 const mixins = {
   flexCenter: css`
@@ -29,6 +59,16 @@ const mixins = {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  `,
+
+  flexRow: css`
+    display: flex;
+    flex-direction: row;
+  `,
+
+  flexColumn: css`
+    display: flex;
+    flex-direction: column;
   `,
 
   outline: css`
@@ -46,7 +86,7 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: ${flat.dark.tertiary};
+      color: ${flat.dark.link};
       outline: 0;
     }
   `,
@@ -57,13 +97,13 @@ const mixins = {
     text-decoration: none;
     text-decoration-skip-ink: auto;
     position: relative;
-    transition: ${theme.transition};
+    transition: ${transition};
     cursor: pointer;
-    color: ${flat.dark.tertiary};
+    color: ${flat.dark.link};
     &:hover,
     &:focus,
     &:active {
-      color: ${flat.dark.tertiary};
+      color: ${flat.dark.link};
       background-position: 0 91%;
       background-size: 1px 1px;
       outline: 0;
@@ -78,7 +118,7 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 0.26em;
-      background-color: ${flat.dark.tertiary};
+      background-color: ${flat.dark.link};
       transition: ${transition};
       opacity: 0.7;
       background-position: 0;
@@ -88,49 +128,15 @@ const mixins = {
   `,
 
   smallButton: css`
-    color: ${flat.dark.button};
-    background-color: transparent;
-    border: 1px solid ${flat.dark.button};
-    border-radius: ${borderRadius};
     padding: 0.75rem 1rem;
-    font-size: ${fontSizes.smish};
-    font-family: ${fonts.SFMono};
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    transition: ${transition};
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: ${flat.dark.button};
-      color: ${flat.dark.buttonText};
-    }
-    &:after {
-      display: none !important;
-    }
+    font-size: ${smish};
+    ${buttonStyles};
   `,
 
   bigButton: css`
-    color: ${flat.dark.button};
-    background-color: transparent;
-    border: 1px solid ${flat.dark.button};
-    border-radius: ${theme.borderRadius};
     padding: 1.25rem 1.75rem;
-    font-size: ${fontSizes.sm};
-    font-family: ${fonts.SFMono};
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    transition: ${theme.transition};
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: ${flat.dark.button};
-      color: ${flat.dark.buttonText};
-    }
-    &:after {
-      display: none !important;
-    }
+    font-size: ${sm};
+    ${buttonStyles};
   `,
 
   rippleEffect: keyframes`
@@ -161,29 +167,12 @@ const mixins = {
   `,
 
   rippleButton: css`
-    box-sizing: border-box;
-    border-radius: ${borderRadius};
-    border: 1px solid ${flat.dark.button};
-    font-size: ${fontSizes.sm};
-    font-family: ${fonts.SFMono};
-    line-height: 1;
-    text-decoration: none;
-    padding: 0.75rem 1rem;
-    background-color: transparent;
-    color: ${flat.dark.button};
+    ${buttonStyles};
+    font-size: ${sm};
+    padding: 1em 1rem;
+    line-height: 1.2;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
-    transition: ${transition};
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: ${flat.dark.button};
-      color: ${flat.dark.buttonText};
-    }
-    &:after {
-      display: none !important;
-    }
     > .content {
       position: relative;
       z-index: 2;
@@ -205,17 +194,16 @@ const mixins = {
 
   sectionPadding: css`
     padding: 164.485px 76.244px;
-    ${media.bigDesktop`padding: 164.485px 29.124px;`};
-    ${media.desktop`padding: 164.485px 47.123px;`};
-    ${media.tablet`padding: 164.485px 29.124px;`};
+    ${media.bigDesktop`padding: 124.485px 29.124px;`};
+    ${media.desktop`padding: 100px 29.124px;`};
+    ${media.tablet`padding: 100px 29.124px;`};
     ${media.thone`padding: 62.83px 29.124px;`};
     ${media.phablet`padding: 38.832px 18px;`};
   `,
 
   boxShadow: css`
     box-shadow: 0 10px 30px -15px ${flat.dark.shadow};
-    transition: ${theme.transition};
-
+    transition: ${transition};
     &:hover,
     &:focus {
       box-shadow: 0 20px 30px -15px ${flat.dark.shadow};
@@ -225,18 +213,20 @@ const mixins = {
   sectionCounter: css`
     margin: 0 auto 20px;
     position: relative;
-    font-size: ${fontSizes.lg};
+    font-size: ${lg};
     counter-increment: item 1;
     ${media.thone`
       margin: 0 auto 10px;
-      font-size: ${fontSizes.md};
+      font-size: ${md};
     `};
-    ${media.tiny`font-size: ${fontSizes.smish};`};
+    ${media.tiny`
+      font-size: ${smish};
+    `};
     &:before {
       display: block;
       content: '0' counter(item) '.';
       color: ${flat.dark.tertiary};
-      font-size: ${fontSizes.sm};
+      font-size: ${md};
       margin-bottom: 5px;
     }
   `,
@@ -247,33 +237,51 @@ const mixins = {
 
   textSelectShadow: css`
     position: relative;
-    top: 0.0975em;
-    left: 0.0975em;
     color: inherit;
     background: none repeat scroll 0% 0% transparent;
     text-shadow: 0 0 0 ${flat.dark.paragraph}, 0 0 0 ${flat.dark.select},
-      0.0025em 0.0025em 0 ${flat.dark.highlight}, 0.005em 0.005em 0 ${flat.dark.highlight},
-      0.0075em 0.0075em 0 ${flat.dark.highlight}, 0.01em 0.01em 0 ${flat.dark.highlight},
-      0.0125em 0.0125em 0 ${flat.dark.highlight}, 0.015em 0.015em 0 ${flat.dark.highlight},
-      0.0175em 0.0175em 0 ${flat.dark.highlight}, 0.02em 0.02em 0 ${flat.dark.highlight},
-      0.0225em 0.0225em 0 ${flat.dark.highlight}, 0.025em 0.025em 0 ${flat.dark.highlight},
-      0.0275em 0.0275em 0 ${flat.dark.highlight}, 0.03em 0.03em 0 ${flat.dark.highlight},
-      0.0325em 0.0325em 0 ${flat.dark.highlight}, 0.035em 0.035em 0 ${flat.dark.highlight},
-      0.0375em 0.0375em 0 ${flat.dark.highlight}, 0.04em 0.04em 0 ${flat.dark.highlight},
-      0.0425em 0.0425em 0 ${flat.dark.highlight}, 0.045em 0.045em 0 ${flat.dark.highlight},
-      0.0475em 0.0475em 0 ${flat.dark.highlight}, 0.05em 0.05em 0 ${flat.dark.highlight},
-      0.0525em 0.0525em 0 ${flat.dark.highlight}, 0.055em 0.055em 0 ${flat.dark.highlight},
-      0.0575em 0.0575em 0 ${flat.dark.highlight}, 0.06em 0.06em 0 ${flat.dark.highlight},
-      0.0625em 0.0625em 0 ${flat.dark.highlight}, 0.065em 0.065em 0 ${flat.dark.highlight},
-      0.0675em 0.0675em 0 ${flat.dark.highlight}, 0.07em 0.07em 0 ${flat.dark.highlight},
-      0.0725em 0.0725em 0 ${flat.dark.highlight}, 0.075em 0.075em 0 ${flat.dark.highlight},
-      0.0775em 0.0775em 0 ${flat.dark.highlight}, 0.08em 0.08em 0 ${flat.dark.highlight},
-      0.0825em 0.0825em 0 ${flat.dark.highlight}, 0.085em 0.085em 0 ${flat.dark.highlight},
-      0.0875em 0.0875em 0 ${flat.dark.highlight}, 0.09em 0.09em 0 ${flat.dark.highlight},
-      0.0925em 0.0925em 0 ${flat.dark.highlight}, 0.095em 0.095em 0 ${flat.dark.highlight},
-      0.0975em 0.0975em 0 ${flat.dark.highlight}, 0.1em 0.1em 0 ${flat.dark.highlight};
+      0.0025em 0.0025em 0 ${flat.dark.highlight},
+      0.005em 0.005em 0 ${flat.dark.highlight},
+      0.0075em 0.0075em 0 ${flat.dark.highlight},
+      0.01em 0.01em 0 ${flat.dark.highlight},
+      0.0125em 0.0125em 0 ${flat.dark.highlight},
+      0.015em 0.015em 0 ${flat.dark.highlight},
+      0.0175em 0.0175em 0 ${flat.dark.highlight},
+      0.02em 0.02em 0 ${flat.dark.highlight},
+      0.0225em 0.0225em 0 ${flat.dark.highlight},
+      0.025em 0.025em 0 ${flat.dark.highlight},
+      0.0275em 0.0275em 0 ${flat.dark.highlight},
+      0.03em 0.03em 0 ${flat.dark.highlight},
+      0.0325em 0.0325em 0 ${flat.dark.highlight},
+      0.035em 0.035em 0 ${flat.dark.highlight},
+      0.0375em 0.0375em 0 ${flat.dark.highlight},
+      0.04em 0.04em 0 ${flat.dark.highlight},
+      0.0425em 0.0425em 0 ${flat.dark.highlight},
+      0.045em 0.045em 0 ${flat.dark.highlight},
+      0.0475em 0.0475em 0 ${flat.dark.highlight},
+      0.05em 0.05em 0 ${flat.dark.highlight},
+      0.0525em 0.0525em 0 ${flat.dark.highlight},
+      0.055em 0.055em 0 ${flat.dark.highlight},
+      0.0575em 0.0575em 0 ${flat.dark.highlight},
+      0.06em 0.06em 0 ${flat.dark.highlight},
+      0.0625em 0.0625em 0 ${flat.dark.highlight},
+      0.065em 0.065em 0 ${flat.dark.highlight},
+      0.0675em 0.0675em 0 ${flat.dark.highlight},
+      0.07em 0.07em 0 ${flat.dark.highlight},
+      0.0725em 0.0725em 0 ${flat.dark.highlight},
+      0.075em 0.075em 0 ${flat.dark.highlight},
+      0.0775em 0.0775em 0 ${flat.dark.highlight},
+      0.08em 0.08em 0 ${flat.dark.highlight},
+      0.0825em 0.0825em 0 ${flat.dark.highlight},
+      0.085em 0.085em 0 ${flat.dark.highlight},
+      0.0875em 0.0875em 0 ${flat.dark.highlight},
+      0.09em 0.09em 0 ${flat.dark.highlight},
+      0.0925em 0.0925em 0 ${flat.dark.highlight},
+      0.095em 0.095em 0 ${flat.dark.highlight},
+      0.0975em 0.0975em 0 ${flat.dark.highlight},
+      0.1em 0.1em 0 ${flat.dark.highlight};
   `,
-};
+}
 
 /**
 * ORIGINAL:
@@ -308,4 +316,4 @@ const mixins = {
   `,
 */
 
-export default mixins;
+export default mixins

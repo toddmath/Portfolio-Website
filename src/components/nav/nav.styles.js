@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { theme, mixins, media } from '@styles';
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { theme, mixins, media } from '@styles'
 const {
   flat,
   fontSizes,
@@ -14,8 +14,8 @@ const {
   hamBeforeActive,
   hamAfterActive,
   borderRadius,
-} = theme;
-const { flexBetween, flexCenter } = mixins;
+} = theme
+const { flexBetween, flexCenter } = mixins
 
 export const StyledContainer = styled.header`
   ${flexBetween};
@@ -29,34 +29,40 @@ export const StyledContainer = styled.header`
   pointer-events: auto !important;
   user-select: auto !important;
   width: 100%;
-  height: ${props => (props.scrollDirection === 'none' ? navHeight : navScrollHeight)};
+  height: ${props =>
+    props.scrollDirection === 'none' ? navHeight : navScrollHeight};
   box-shadow: ${props =>
-    props.scrollDirection === 'up' ? `0 8px 16px -10px ${flat.dark.headerShadow}` : 'none'};
+    props.scrollDirection === 'up'
+      ? `0 8px 16px -10px ${flat.dark.headerShadow}`
+      : 'none'};
   transform: translateY(
-    ${props => (props.scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
+    ${props =>
+      props.scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px'}
   );
   border-bottom: ${props =>
     props.scrollDirection === 'up' ? `1px solid ${flat.dark.headerBorder}` : 'none'};
   ${media.desktop`padding: 0 40px;`};
   ${media.tablet`padding: 0 25px;`};
-`;
+`
 
 export const StyledNav = styled.nav`
   ${flexBetween};
+  align-items: stretch;
   position: relative;
   width: 100%;
   color: ${flat.dark.paragraph};
   font-family: ${fonts.SFMono};
   counter-reset: item 0;
   z-index: 12;
-`;
+  box-sizing: border-box;
+`
 
 export const StyledLogo = styled.div`
   ${flexCenter};
   a {
     display: block;
     color: ${flat.dark.link} !important;
-    width: 42px;
+    width: 72px;
     height: 42px;
     &:hover,
     &:focus {
@@ -65,14 +71,13 @@ export const StyledLogo = styled.div`
       }
     }
     svg {
-      fill: none;
       color: ${flat.dark.link} !important;
       transition: ${transition};
       user-select: none;
       stroke: ${flat.dark.link};
     }
   }
-`;
+`
 
 export const StyledHamburger = styled.div`
   ${flexCenter};
@@ -89,14 +94,14 @@ export const StyledHamburger = styled.div`
   background-color: transparent;
   display: none;
   ${media.tablet`display: flex;`};
-`;
+`
 
 export const StyledHamburgerBox = styled.div`
   position: relative;
   display: inline-block;
   width: ${hamburgerWidth}px;
   height: 24px;
-`;
+`
 
 export const StyledHamburgerInner = styled.div`
   background-color: ${flat.dark.link};
@@ -112,7 +117,8 @@ export const StyledHamburgerInner = styled.div`
   transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
   transform: rotate(${props => (props.menuOpen ? `225deg` : `0deg`)});
   transition-timing-function: cubic-bezier(
-    ${props => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)}
+    ${props =>
+      props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`}
   );
   &:before,
   &:after {
@@ -141,17 +147,17 @@ export const StyledHamburgerInner = styled.div`
     transform: rotate(${props => (props.menuOpen ? `-90deg` : `0`)});
     transition: ${props => (props.menuOpen ? hamAfterActive : hamAfter)};
   }
-`;
+`
 
 export const StyledLink = styled.div`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   ${media.tablet`display: none;`};
-`;
+`
 
 export const StyledList = styled.ol`
   ${flexBetween};
-`;
+`
 
 export const StyledListItem = styled.li`
   margin: 0 10px;
@@ -164,11 +170,17 @@ export const StyledListItem = styled.li`
     color: ${flat.dark.link};
     font-size: ${fontSizes.xs};
   }
-`;
+`
 
 export const StyledListLink = styled(Link)`
   padding: 12px 10px;
-`;
+`
+
+export const StyledButtonContainer = styled.div`
+  display: inline-flex;
+  align-items: stretch;
+  transition-delay: ${props => (props.delay ? props.delay : '100ms')};
+`
 
 // export const StyledResumeButton = styled.a`
 //   ${smallButton};

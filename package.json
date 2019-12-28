@@ -16,7 +16,8 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check"
   },
   "husky": {
     "hooks": {
@@ -30,12 +31,12 @@
     ]
   },
   "dependencies": {
+    "@xstate/react": "^0.8.1",
     "animejs": "^3.1.0",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.18.16",
+    "gatsby": "^2.18.17",
     "gatsby-image": "^2.2.37",
-    "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-lodash": "^3.1.18",
     "gatsby-plugin-manifest": "^2.2.34",
     "gatsby-plugin-netlify": "^2.1.30",
@@ -58,25 +59,26 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-reveal": "^1.2.2",
     "react-transition-group": "^4.3.0",
     "scrollreveal": "^4.0.5",
     "smooth-scroll": "^16.1.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "xstate": "^4.7.3"
   },
   "devDependencies": {
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
-    "@upstatement/eslint-config": "0.4.3",
-    "@upstatement/prettier-config": "^0.3.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
-    "fast-fp.macro": "^1.0.0-beta.3",
+    "fast-fp.macro": "^1.0.0",
     "gatsby-plugin-eslint": "^2.0.8",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",

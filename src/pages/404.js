@@ -1,63 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import PropTypes from 'prop-types';
-import { Layout } from '@components';
-import styled from 'styled-components';
-import { theme, mixins, media, Main } from '@styles';
-const { colors, fonts } = theme;
+import React, { useState, useEffect } from 'react'
+import { Link } from 'gatsby'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import PropTypes from 'prop-types'
+import { Layout } from '@components'
+import styled from 'styled-components'
+import { theme, mixins, media, Main } from '@styles'
+const { flat, fonts } = theme
 
 const StyledMainContainer = styled(Main)`
   ${mixins.flexCenter};
   flex-direction: column;
   height: 100vh !important;
-`;
+`
 const StyledTitle = styled.h1`
-  color: ${colors.green};
+  ${mixins.textSelectShadow};
+  color: ${flat.dark.paragraph};
   font-family: ${fonts.SFMono};
   font-size: 12vw;
   line-height: 1;
+  margin: 0 auto 2rem;
   ${media.bigDesktop`font-size: 200px;`}
   ${media.phablet`font-size: 120px;`};
-`;
+
+  &:after {
+    content: '';
+    margin-left: 1.5rem;
+  }
+`
 const StyledSubtitle = styled.h2`
   font-size: 3vw;
   font-weight: 400;
   ${media.bigDesktop`font-size: 50px;`};
   ${media.phablet`font-size: 30px;`};
-`;
+`
 const StyledHomeButton = styled(Link)`
   ${mixins.bigButton};
   margin-top: 40px;
-`;
+`
 
 const NotFoundPage = ({ location }) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 1000);
-    return () => clearTimeout(timeout);
-  }, []);
+    const timeout = setTimeout(() => setIsMounted(true), 1000)
+    return () => clearTimeout(timeout)
+  }, [])
 
   return (
     <Layout location={location}>
       <TransitionGroup component={null}>
         {isMounted && (
-          <CSSTransition timeout={500} classNames="fade">
+          <CSSTransition timeout={500} classNames='fade'>
             <StyledMainContainer>
               <StyledTitle>404</StyledTitle>
               <StyledSubtitle>Page Not Found</StyledSubtitle>
-              <StyledHomeButton to="/">Go Home</StyledHomeButton>
+              <StyledHomeButton to='/'>Go Home</StyledHomeButton>
             </StyledMainContainer>
           </CSSTransition>
         )}
       </TransitionGroup>
     </Layout>
-  );
-};
+  )
+}
 
 NotFoundPage.propTypes = {
   location: PropTypes.object.isRequired,
-};
+}
 
-export default NotFoundPage;
+export default NotFoundPage
