@@ -1,13 +1,14 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import { Layout, Hero, About, Featured, Projects, Contact } from '@components';
-import styled from 'styled-components';
-import { Main } from '@styles';
+import React from 'react'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+import { Layout, Hero, About, Featured, Projects, Contact } from '@components'
+import { Main } from '@styles'
 
 const StyledMainContainer = styled(Main)`
   counter-reset: section;
-`;
+`
 
 const IndexPage = ({ location, data }) => (
   <Layout location={location}>
@@ -19,14 +20,14 @@ const IndexPage = ({ location, data }) => (
       <Contact data={data.contact.edges} />
     </StyledMainContainer>
   </Layout>
-);
+)
 
 IndexPage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
-};
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const pageQuery = graphql`
   {
@@ -119,7 +120,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    contact: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/contact/" } }) {
+    contact: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/contact/" } }
+    ) {
       edges {
         node {
           frontmatter {
@@ -130,4 +133,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

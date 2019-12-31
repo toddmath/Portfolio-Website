@@ -1,4 +1,5 @@
 import withToast from './toast/withToast'
+import AnimatedText from './animated-text/animated-text.component'
 import About from './about/about.component'
 import Contact from './contact/contact.component'
 import Email from './email/email.component'
@@ -18,6 +19,7 @@ import RippleButton from './rippleButton/rippleButton.component'
 
 export {
   withToast,
+  AnimatedText,
   About,
   Contact,
   Email,

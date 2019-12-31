@@ -3,6 +3,7 @@
   "description": "Portfolio Website",
   "version": "1.0.0",
   "author": "toddmath <tmatheson11186@gmail.com>",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/toddmath/Portfolio-Website"
@@ -35,6 +36,7 @@
     "animejs": "^3.1.0",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
+    "delay": "^4.3.0",
     "gatsby": "^2.18.17",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-lodash": "^3.1.18",
@@ -60,6 +62,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-reveal": "^1.2.2",
+    "react-spring": "^8.0.27",
     "react-transition-group": "^4.3.0",
     "scrollreveal": "^4.0.5",
     "smooth-scroll": "^16.1.0",

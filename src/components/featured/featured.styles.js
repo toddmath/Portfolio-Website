@@ -1,13 +1,27 @@
-import styled from 'styled-components';
-import Img from 'gatsby-image';
-import { theme, mixins, media, Section } from '@styles';
-const { colors, flat, fontSizes, fonts } = theme;
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+
+import { theme, mixins, media, Section } from '@styles'
+
+const { flexCenter, boxShadow, inlineLink } = mixins
+
+const {
+  colors,
+  flat,
+  fontSizes: { smish, lg },
+  fonts: { SFMono },
+  transition,
+  borderRadius,
+  margin,
+} = theme
 
 export const StyledContainer = styled(Section)`
-  ${mixins.flexCenter};
+  ${flexCenter};
   flex-direction: column;
   align-items: flex-start;
-`;
+  /* transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1); */
+  transition: ${transition};
+`
 
 export const StyledContent = styled.div`
   position: relative;
@@ -19,16 +33,16 @@ export const StyledContent = styled.div`
     z-index: 5;
   `};
   ${media.phablet`padding: 30px 25px 20px;`};
-`;
+`
 
 export const StyledLabel = styled.h4`
-  font-size: ${fontSizes.smish};
+  font-size: ${smish};
   font-weight: normal;
   color: ${flat.dark.cardHeadline};
-  font-family: ${fonts.SFMono};
+  font-family: ${SFMono};
   margin-top: 10px;
   padding-top: 0;
-`;
+`
 
 export const StyledProjectName = styled.h5`
   z-index: 100;
@@ -41,17 +55,17 @@ export const StyledProjectName = styled.h5`
   a {
     ${media.tablet`display: block;`};
   }
-`;
+`
 
 export const StyledDescription = styled.div`
-  ${mixins.boxShadow};
+  ${boxShadow};
   position: relative;
   z-index: 2;
   padding: 25px;
   background-color: ${flat.dark.cardBackground};
   color: ${flat.dark.cardParagraph};
-  font-size: ${fontSizes.lg};
-  border-radius: ${theme.borderRadius};
+  font-size: ${lg};
+  border-radius: ${borderRadius};
   ${media.thone`
     background-color: transparent;
     padding: 20px 0;
@@ -64,9 +78,9 @@ export const StyledDescription = styled.div`
     margin: 0;
   }
   a {
-    ${mixins.inlineLink};
+    ${inlineLink};
   }
-`;
+`
 
 export const StyledTechList = styled.ul`
   position: relative;
@@ -75,10 +89,10 @@ export const StyledTechList = styled.ul`
   flex-wrap: wrap;
   margin: 25px 0 10px;
   li {
-    font-family: ${fonts.SFMono};
-    font-size: ${fontSizes.smish};
+    font-family: ${SFMono};
+    font-size: ${smish};
     color: ${flat.dark.grey};
-    margin-right: ${theme.margin};
+    margin-right: ${margin};
     margin-bottom: 7px;
     white-space: nowrap;
     &:last-of-type {
@@ -89,7 +103,7 @@ export const StyledTechList = styled.ul`
       margin-right: 10px;
     `};
   }
-`;
+`
 
 export const StyledLinkWrapper = styled.div`
   display: flex;
@@ -105,13 +119,13 @@ export const StyledLinkWrapper = styled.div`
       height: 22px;
     }
   }
-`;
+`
 
 export const StyledFeaturedImg = styled(Img)`
   width: 100%;
   max-width: 100%;
   vertical-align: middle;
-  border-radius: ${theme.borderRadius};
+  border-radius: ${borderRadius};
   position: relative;
   mix-blend-mode: multiply;
   filter: grayscale(100%) contrast(1) brightness(90%);
@@ -120,7 +134,7 @@ export const StyledFeaturedImg = styled(Img)`
     width: auto;
     height: 100%;
   `};
-`;
+`
 
 export const StyledImgContainer = styled.a`
   ${mixins.boxShadow};
@@ -128,15 +142,15 @@ export const StyledImgContainer = styled.a`
   grid-row: 1 / -1;
   position: relative;
   z-index: 1;
-  border-radius: ${theme.borderRadius};
-  transition: ${theme.transition};
+  border-radius: ${borderRadius};
+  /* transition: ${transition}; */
+  /* transition: all .25s cubic-bezier(0.215, 0.610, 0.355, 1); */
   ${media.tablet`height: 100%;`};
   ${media.thone`
     grid-column: 1 / 13;
     ${StyledFeaturedImg} {
       filter: grayscale(100%) invert(.2) brightness(20%);
     }
-
     &:before {
       background-color: transparent;
     }
@@ -160,7 +174,8 @@ export const StyledImgContainer = styled.a`
     right: 0;
     bottom: 0;
     z-index: 3;
-    transition: ${theme.transition};
+    /* transition: ${transition}; */
+    /* transition: all .25s cubic-bezier(0.215, 0.610, 0.355, 1); */
     background-color: ${flat.dark.imgBackground};
     mix-blend-mode: screen;
     ${media.thone`
@@ -168,9 +183,10 @@ export const StyledImgContainer = styled.a`
       filter: saturate(2) blur(0.02em) invert(0) brightness(45%);
     `}
   }
-`;
+`
 
 export const StyledProject = styled.div`
+  transition: inherit;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
@@ -207,7 +223,7 @@ export const StyledProject = styled.div`
     ${StyledTechList} {
       justify-content: flex-end;
       li {
-        margin-left: ${theme.margin};
+        margin-left: ${margin};
         margin-right: 0;
       }
     }
@@ -228,4 +244,4 @@ export const StyledProject = styled.div`
       `};
     }
   }
-`;
+`

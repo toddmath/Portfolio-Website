@@ -1,11 +1,13 @@
-import styled from 'styled-components';
-import Img from 'gatsby-image';
-import { theme, mixins, media, Section } from '@styles';
-const { colors, flat, fontSizes, fonts } = theme;
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+
+import { theme, mixins, media, Section } from '@styles'
+
+const { colors, flat, fontSizes, fonts } = theme
 
 export const StyledContainer = styled(Section)`
   position: relative;
-`;
+`
 
 export const StyledFlexContainer = styled.div`
   ${mixins.flexBetween};
@@ -14,23 +16,24 @@ export const StyledFlexContainer = styled.div`
   /* width: 1302.17px;
   max-width: 1302.17px; */
   width: 100%;
-`;
+`
 
 export const StyledContent = styled.div`
   width: 804.802px;
   max-width: 804.802px;
   ${media.tablet`width: 100%;`};
+
   a {
     ${mixins.inlineLink};
   }
-`;
+`
 
 export const SkillsContainer = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, minmax(140px, 200px));
   overflow: hidden;
   margin-top: 20px;
-`;
+`
 
 export const Skill = styled.li`
   position: relative;
@@ -39,6 +42,7 @@ export const Skill = styled.li`
   font-family: ${fonts.SFMono};
   font-size: ${fontSizes.smish};
   color: ${colors.grey};
+
   &:before {
     content: '▹';
     position: absolute;
@@ -47,7 +51,7 @@ export const Skill = styled.li`
     font-size: ${fontSizes.sm};
     line-height: 15px;
   }
-`;
+`
 
 export const StyledPic = styled.div`
   position: relative;
@@ -60,7 +64,7 @@ export const StyledPic = styled.div`
   ${media.tablet`margin: 60px auto 0;`};
   ${media.desktop`width: 100%;`};
   ${media.phablet`width: 80%;`};
-`;
+`
 
 export const StyledAvatar = styled(Img)`
   position: relative;
@@ -68,7 +72,7 @@ export const StyledAvatar = styled(Img)`
   filter: grayscale(100%);
   border-radius: ${theme.borderRadius};
   transition: ${theme.transition};
-`;
+`
 
 export const StyledAvatarLink = styled.a`
   ${mixins.boxShadow};
@@ -76,18 +80,22 @@ export const StyledAvatarLink = styled.a`
   position: relative;
   border-radius: ${theme.borderRadius};
   margin-left: -20px;
+
   &:hover,
   &:focus {
     background: transparent;
+
     &:after {
       top: 15px;
       left: 15px;
     }
+
     ${StyledAvatar} {
       filter: none;
       mix-blend-mode: normal;
     }
   }
+
   &:before,
   &:after {
     content: '';
@@ -98,6 +106,7 @@ export const StyledAvatarLink = styled.a`
     border-radius: ${theme.borderRadius};
     transition: ${theme.transition};
   }
+
   &:before {
     top: 0;
     left: 0;
@@ -106,10 +115,11 @@ export const StyledAvatarLink = styled.a`
     background-color: ${flat.dark.cardTagBackground};
     mix-blend-mode: multiply;
   }
+
   &:after {
     border: 2px solid ${flat.dark.tertiary};
     top: 20px;
     left: 20px;
     z-index: -1;
   }
-`;
+`

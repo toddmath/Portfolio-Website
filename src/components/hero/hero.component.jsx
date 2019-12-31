@@ -1,59 +1,112 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-// import Zoom from 'react-reveal/Zoom'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { useSpring } from 'react-spring'
+
+// import { CSSTransition, TransitionGroup } from 'react-transition-group'
+// import anime from 'animejs'
+// import Rotate from 'react-reveal/Rotate'
+
 import { email } from '@config'
-import { useTimeout } from '@hooks'
+import { useTimeout, useMousePosition } from '@hooks'
+
+import { theme } from '@styles'
+
+import { AnimatedText } from '@components'
+
 import {
-  StyledOverline,
-  StyledTitle,
-  StyledSubtitle,
-  StyledDescription,
-  StyledEmailLink,
+  AnimatedOverline,
+  AnimatedDescription,
+  AnimatedEmailLink,
   StyledContainer,
 } from './hero.styles'
 
 const Hero = ({ data }) => {
+  const {
+    frontmatter: { title, name, subtitle },
+    html,
+  } = data[0].node
+
+  // const containerElem = useRef(null)
   const [isMounted, setIsMounted] = useState(false)
+
   useTimeout(() => setIsMounted(true), 700)
-  const { frontmatter, html } = data[0].node
+
+  // const handleMouseMove = event => {
+  //   // if (event.target) event.preventDefault()
+  //   event = event.nativeEvent // eslint-disable-line no-param-reassign
+  //   const elem = containerElem.current
+  //   const newX = (event.offsetX / elem.clientWidth) * 100
+  //   const newY = (event.offsetY / elem.clientHeight) * 100
+  //   const newMousePos = {
+  //     x: newX,
+  //     y: newY,
+  //   }
+
+  //   setMousePos(newMousePos)
+  // }
+
+  // const handleMouseOut = () => setMousePos(initialMousePos)
+
+  const { x, y } = useMousePosition()
+
+  const handleMouseX = mouseX => mouseX / 14
+
+  const handleMouseY = mouseY => mouseY / 14
+
+  const opt = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 340,
+    immediate: isMounted,
+    config: { mass: 1, friction: 28, tension: 200 },
+  })
+
+  // const One = () => <AnimatedOverline>{title}</AnimatedOverline>
+
+  // const Two = () => <AnimatedTitle>{name}</AnimatedTitle>
+
+  // const Three = () => <AnimatedSubtitle>{subtitle}</AnimatedSubtitle>
+
+  // const Four = () => (
+  //   <AnimatedDescription dangerouslySetInnerHTML={{ __html: html }} />
+  // )
+
+  // const Five = () => (
+  //   <div>
+  //     <AnimatedEmailLink href={`mailto:${email}`}>Get In Touch</AnimatedEmailLink>
+  //   </div>
+  // )
+
+  // const items = [One, Two, Three, Four, Five]
+
+  // const trans = useTransition(items)
 
   return (
     <StyledContainer>
-      <TransitionGroup component={null}>
-        {isMounted && (
-          <>
-            <CSSTransition key={'first'} classNames='fadeup' timeout={0}>
-              <StyledOverline style={{ transitionDelay: '100ms' }}>
-                {frontmatter.title}
-              </StyledOverline>
-            </CSSTransition>
-            <CSSTransition key={'second'} classNames='fade' timeout={100}>
-              <StyledTitle style={{ transitionDelay: '200ms' }}>
-                {frontmatter.name}.
-              </StyledTitle>
-            </CSSTransition>
-            <CSSTransition key={'third'} classNames='fade' timeout={200}>
-              <StyledSubtitle style={{ transitionDelay: '300ms' }}>
-                {frontmatter.subtitle}
-              </StyledSubtitle>
-            </CSSTransition>
-            <CSSTransition key={'fourth'} classNames='fade' timeout={300}>
-              <StyledDescription
-                style={{ transitionDelay: '400ms' }}
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
-            </CSSTransition>
-            <CSSTransition key={'fifth'} classNames='fade' timeout={400}>
-              <div style={{ transitionDelay: '500ms' }}>
-                <StyledEmailLink href={`mailto:${email}`}>
-                  Get In Touch
-                </StyledEmailLink>
-              </div>
-            </CSSTransition>
-          </>
-        )}
-      </TransitionGroup>
+      <div>
+        <AnimatedOverline style={opt} className='hero'>
+          {title}
+        </AnimatedOverline>
+        <AnimatedText
+          maskX={handleMouseX(x)}
+          maskY={handleMouseY(y)}
+          textColor={theme.flat.dark.paragraph}
+          overlayColor={theme.flat.dark.button}
+          title={name}
+          subtitle={subtitle}
+        />
+        <AnimatedDescription
+          style={opt}
+          className='hero'
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+        <div>
+          <AnimatedEmailLink style={opt} className='hero' href={`mailto:${email}`}>
+            Get In Touch
+          </AnimatedEmailLink>
+        </div>
+      </div>
     </StyledContainer>
   )
 }
@@ -63,11 +116,3 @@ Hero.propTypes = {
 }
 
 export default Hero
-
-/*
-  items.map((item, i) => (
-    <CSSTransition key={i} classNames='fadeup' timeout={0}>
-      {item}
-    </CSSTransition>
-  ))
-*/

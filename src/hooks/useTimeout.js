@@ -1,20 +1,20 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react'
 
-const useTimeout = (callback, delay) => {
-  const savedCallback = useRef();
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
+export const useTimeout = (callback, delay) => {
+  const savedCallback = useRef()
 
   useEffect(() => {
-    const tick = () => savedCallback.current();
+    savedCallback.current = callback
+  }, [callback])
+
+  useEffect(() => {
+    const tick = () => savedCallback.current()
 
     if (delay !== null) {
-      const id = setTimeout(tick, delay);
-      return () => clearTimeout(id);
+      const id = setTimeout(tick, delay)
+      return () => clearTimeout(id)
     }
-  }, [delay]);
-};
+  }, [delay])
+}
 
-export default useTimeout;
+export default useTimeout

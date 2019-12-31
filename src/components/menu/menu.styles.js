@@ -1,8 +1,21 @@
-import styled from 'styled-components';
-import { theme, mixins, media } from '@styles';
-import { Link } from 'gatsby';
-const { flat, fonts, transition } = theme;
-const { flexCenter, flexBetween, link, smallButton, largeShadow, sectionCounter } = mixins;
+import styled from 'styled-components'
+import { theme, mixins, media } from '@styles'
+import { Link } from 'gatsby'
+
+const {
+  flat,
+  transition,
+  fonts: { SFMono },
+} = theme
+
+const {
+  flexCenter,
+  flexBetween,
+  link,
+  smallButton,
+  largeShadow,
+  sectionCounter,
+} = mixins
 
 export const StyledContainer = styled.div`
   position: fixed;
@@ -18,7 +31,7 @@ export const StyledContainer = styled.div`
   visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
   display: none;
   ${media.tablet`display: block;`};
-`;
+`
 
 export const Sidebar = styled.aside`
   ${flexCenter};
@@ -31,11 +44,11 @@ export const Sidebar = styled.aside`
   position: relative;
   right: 0;
   margin-left: auto;
-  font-family: ${fonts.SFMono};
+  font-family: ${SFMono};
   ${media.thone`padding: 25px; width: 50vw;`};
   ${media.phablet`width: 60vw;`};
   ${media.tiny`padding: 10px; width: 75vw;`};
-`;
+`
 
 export const NavLinks = styled.nav`
   ${flexBetween};
@@ -43,25 +56,25 @@ export const NavLinks = styled.nav`
   flex-direction: column;
   text-align: center;
   color: ${flat.dark.cardParagraph};
-`;
+`
 
 export const NavList = styled.ol`
   width: 100%;
-`;
+`
 
 export const NavItem = styled.li`
   ${sectionCounter};
-`;
+`
 
 export const NavLink = styled(Link)`
   ${link};
   padding: 3px 20px 20px;
   width: 100%;
-`;
+`
 
 export const Resume = styled.a`
   ${smallButton};
   padding: 18px 50px;
   margin: 10% auto 0;
   width: max-content;
-`;
+`

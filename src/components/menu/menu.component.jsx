@@ -1,24 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { navLinks } from '@config';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { navLinks } from '@config'
+
 import {
-  StyledContainer,
   Sidebar,
-  NavLinks,
   NavList,
+  StyledContainer,
+  NavLinks,
   NavLink,
   NavItem,
   Resume,
-} from './menu.styles';
+} from './menu.styles'
 
 const Menu = ({ menuOpen, toggleMenu }) => {
   const onMenuClick = e => {
-    const { target } = e;
-    const isLink = target.hasAttribute('href');
-    const isNotMenu = target.classList && target.classList[0].includes('StyledContainer');
+    const {
+      target: { classList },
+    } = e
+    const isLink = target.hasAttribute('href')
+    const isNotMenu = classList && classList[0].includes('StyledContainer')
 
-    if (isLink || isNotMenu) toggleMenu();
-  };
+    if (isLink || isNotMenu) toggleMenu()
+  }
 
   return (
     <StyledContainer
@@ -26,7 +29,8 @@ const Menu = ({ menuOpen, toggleMenu }) => {
       onClick={onMenuClick}
       aria-hidden={!menuOpen}
       aria-expanded={menuOpen}
-      tabIndex={menuOpen ? 1 : -1}>
+      tabIndex={menuOpen ? 1 : -1}
+    >
       <Sidebar>
         <NavLinks>
           <NavList>
@@ -37,18 +41,22 @@ const Menu = ({ menuOpen, toggleMenu }) => {
                 </NavItem>
               ))}
           </NavList>
-          <Resume href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
+          <Resume
+            href='/resume.pdf'
+            target='_blank'
+            rel='nofollow noopener noreferrer'
+          >
             Resume
           </Resume>
         </NavLinks>
       </Sidebar>
     </StyledContainer>
-  );
-};
+  )
+}
 
 Menu.propTypes = {
   menuOpen: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
-};
+}
 
-export default Menu;
+export default Menu
